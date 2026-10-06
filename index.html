@@ -113,7 +113,7 @@
               <div class="comentarios">
                 <strong>Comentários:</strong>
                 ${livro.comentarios.length === 0 ? '<p>Nenhum comentário.</p>' : ''}
-                ${livro.comentarios.map(c => `<div><strong>${c.autor_comentario}:</strong>${c.texto}</div>`).join('')}
+                ${livro.comentarios.map(c => `<div><strong>${c.autor_nome}:</strong>${c.texto}</div>`).join('')}
                 
                 <div style="margin-top: 8px;">
                   <input type="text" id="coment_${livro.id}" placeholder="Escreva uma avaliação...">

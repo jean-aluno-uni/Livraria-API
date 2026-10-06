@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const JWT_SECRET = process.env.JWT_SECRET || "chave_super_secreta_livraria_2026";
 
 function autenticarToken(req, res, next) {
   const authHeader = req.headers['authorization'];
@@ -8,7 +9,7 @@ function autenticarToken(req, res, next) {
     return res.status(401).json({ erro: "Token de autenticação não fornecido." });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, usuario) => {
+  jwt.verify(token, JWT_SECRET, (err, usuario) => {
     if (err) {
       return res.status(401).json({ erro: "Token inválido ou expirado." });
     }

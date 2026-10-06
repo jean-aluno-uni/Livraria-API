@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const repository = require('../repositories/LivrariaRepository');
 
+const JWT_SECRET = process.env.JWT_SECRET || "chave_super_secreta_livraria_2026";
+
 class AuthService {
   async registrar({ nome, email, senha }) {
     if (!nome || !email || !senha) {
@@ -43,8 +45,8 @@ class AuthService {
 
     const token = jwt.sign(
       { sub: usuario.id, nome: usuario.nome, role: usuario.role },
-      process.env.JWT_SECRET,
-      { expiresIn: '1h' }
+      JWT_SECRET,
+      { expiresIn: '2h' }
     );
 
     return {

@@ -5,12 +5,11 @@ API de livros e autores em Node.js com Express, protegida com BCrypt, JWT e cont
 ## Como rodar
 
 1. Instalar as dependências com `npm install`
-2. Copiar o arquivo `.env.example` para `.env` e colocar uma chave secreta no `JWT_SECRET`
-3. Iniciar com `npm start`
+2. Iniciar com `node server.js`
 
-A API sobe em `http://localhost:3000/api/v1`. É preciso Node 20.6 ou mais novo por causa do `--env-file`.
+A API sobe em `http://localhost:3000/api/v1`. A chave do JWT vem da variável de ambiente `JWT_SECRET` e, se ela não existir, é usada a chave padrão definida no código.
 
-Para testar pelo navegador, basta abrir o `index.html` com a API rodando.
+Para testar pelo navegador, abra o `index.html` com o Live Server do VS Code ou rode `py -m http.server 8080` e acesse `http://localhost:8080`.
 
 Se já existir um `database.txt` antigo de antes da atividade, apague ele para os usuários serem recriados com os hashes novos.
 
