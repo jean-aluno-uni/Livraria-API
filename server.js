@@ -5,12 +5,17 @@ const authRoutes = require('./routes/authRoutes');
 const livroRoutes = require('./routes/livroRoutes');
 const autorRoutes = require('./routes/autorRoutes');
 const errorHandler = require('./middlewares/errorMiddleware');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocs = require('./docs/swagger');
 
 const app = express();
 const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
+
+app.get('/api-docs.json', (req, res) => res.json(swaggerDocs));
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Agrupamento Semântico de Rotas (RESTful /api/v1)
 app.use('/api/v1/auth', authRoutes);

@@ -13,6 +13,15 @@ Para testar pelo navegador, abra o `index.html` com o Live Server do VS Code ou 
 
 Se já existir um `database.txt` antigo de antes da atividade, apague ele para os usuários serem recriados com os hashes novos.
 
+## Documentação
+
+A documentação segue a OpenAPI 3.0 e foi feita com `swagger-ui-express` e `swagger-jsdoc`. A especificação fica em `docs/swagger.js`.
+
+- Interface interativa do Swagger em `http://localhost:3000/api/docs`
+- Especificação bruta em JSON em `http://localhost:3000/api-docs.json`
+
+Para testar as rotas protegidas, execute o `POST /auth/login`, copie o `token` da resposta, clique em **Authorize**, cole o token e confirme. Depois disso as rotas de comentários, autores e livros já vão com o cabeçalho `Authorization: Bearer`.
+
 ## Usuários iniciais
 
 | Perfil | E-mail | Senha |
